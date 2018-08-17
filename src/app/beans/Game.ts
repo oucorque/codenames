@@ -2,7 +2,7 @@ import { Action } from './action';
 
 export class Game {
 
-    public sizex = 5;
+    public sizex = 5; // Variables non utilisées au final car non utilisables dans les déclarations de tableau
     public sizey = 5;
 
     public words: string[][]; // Le tableau des mots communs

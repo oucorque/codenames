@@ -1,10 +1,25 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { BehaviorSubject } from 'rxjs';
+import { AngularFirestore } from 'angularfire2/firestore';
+
+const FirestoreStub = {
+  collection: (name: string) => ({
+    doc: (_id: string) => ({
+      valueChanges: () => new BehaviorSubject({ foo: 'bar' }),
+    }),
+    valueChanges: () => new BehaviorSubject([{ foo: 'bar' }]),
+  })
+};
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
+      ],
+      providers: [
+        { provide: AngularFirestore, useValue: FirestoreStub },
       ],
     }).compileComponents();
   }));

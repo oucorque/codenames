@@ -9,7 +9,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'the sky is blue';
+  title = 'codenames';
 
   public items: Observable<any[]>;
 
